@@ -21,7 +21,7 @@
                     }
                 });
                 e.on("stopped_at_floor", function(f) {
-                	if(e.task>=0 && e.task!=f){
+                    if(e.task>=0 && e.task!=f){
                         if(floors[e.task].buttonStates.up)floors[e.task].upReq=true;
                         if(floors[e.task].buttonStates.down)floors[e.task].downReq=true;
                     }
@@ -47,11 +47,11 @@
         for (i=0; i<elevators.length; i++){
             var e=elevators[i];
             if (e.task>=0 && !floors[e.task].buttonStates.up && !floors[e.task].buttonStates.down){
-            	if (!e.getPressedFloors().includes(e.task)) {
-            		e.destinationQueue = e.destinationQueue.filter(function(ele){return ele != e.task;});
+                if (!e.getPressedFloors().includes(e.task)) {
+                    e.destinationQueue = e.destinationQueue.filter(function(ele){return ele != e.task;});
                     e.checkDestinationQueue();
-            	}
-            	e.task=-1;
+                }
+                e.task=-1;
             }
             if (e.loadFactor()==0.0 && e.task==-1) {
                 var j;
